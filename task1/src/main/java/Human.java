@@ -1,6 +1,6 @@
 import java.util.*;
 
-public abstract  class Human {
+public abstract  class Human implements IHuman{
 
     private String eyesColor;
     private String hairColor;
@@ -38,6 +38,7 @@ public abstract  class Human {
         }
     }
 
+    public abstract void sayHello();
     public Optional<MaleHuman> getFather() {
         return father;
     }
