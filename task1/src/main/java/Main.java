@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class Main {
@@ -82,5 +83,9 @@ public class Main {
         myMother.buyDress();
         me.sayHello();
         myWife.sayHello();
+
+        for (MyEntry<String,ArrayList<Human>> item: rl) {
+            System.out.println(item);
+        }
     }
 }

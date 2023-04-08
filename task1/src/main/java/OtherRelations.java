@@ -2,13 +2,13 @@ import javax.net.ssl.HttpsURLConnection;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class OtherRelations implements IRelations {
+public class OtherRelations implements IRelations, Iterable<MyEntry<String,ArrayList<Human>>> {
     private Human owner;
-    private HashMap<String, ArrayList<Human>> relations;
+    private LinkedHashMap<String, ArrayList<Human>> relations;
 
     public OtherRelations(Human owner) {
         this.owner = owner;
-        this.relations = new HashMap<String, ArrayList<Human>>();
+        this.relations = new LinkedHashMap<String, ArrayList<Human>>();
     }
     public void addRelation(String typeOfRelation, Human source){
         ArrayList<Human> currentRelationMembers = this.relations.get(typeOfRelation);
@@ -32,5 +32,34 @@ public class OtherRelations implements IRelations {
                 "owner=" + owner +
                 ", relations=" + relations +
                 '}';
+    }
+
+    @Override
+    public Iterator<MyEntry<String,ArrayList<Human>>> iterator() {
+
+        Iterator<MyEntry<String,ArrayList<Human>>>  it = new Iterator<>() {
+            private int index = 0;
+            @Override
+            public boolean hasNext() {
+
+                return index < relations.size();
+            }
+
+            @Override
+            public MyEntry<String, ArrayList<Human>> next() {
+                Set<String> keySet = relations.keySet();
+                List<String> listKeys = new ArrayList<>(keySet);
+                String key = listKeys.get(index++);
+                MyEntry<String,ArrayList<Human>> result= new MyEntry<>(key,relations.get(key));
+                return result;
+            }
+        };
+
+        return it;
+    }
+
+    @Override
+    public void forEach(Consumer action) {
+        Iterable.super.forEach(action);
     }
 }
