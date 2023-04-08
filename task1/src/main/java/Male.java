@@ -1,2 +1,3 @@
-public interface Male {
+public interface Male extends IHuman {
+    void drinkBeer();
 }

@@ -1,2 +1,4 @@
-public interface Female {
+public interface Female extends IHuman{
+
+    void buyDress();
 }

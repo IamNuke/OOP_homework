@@ -1,9 +1,8 @@
 import javax.net.ssl.HttpsURLConnection;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class OtherRelations {
+public class OtherRelations implements IRelations {
     private Human owner;
     private HashMap<String, ArrayList<Human>> relations;
 

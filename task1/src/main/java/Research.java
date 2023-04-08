@@ -5,7 +5,7 @@ public class Research {
         this.researchObject = researchObject;
     }
 
-    public void сonductResearch(){
+    public void conductResearch(){
 
         for (Human child : this.researchObject.getChildren()) {
             System.out.printf("Name: %s \t Gender: %s %n", child.getName(), child.getGender());
