@@ -60,10 +60,10 @@ public class Main {
 
         System.out.println(mySon);
 
-        Research<MaleHuman> rs = new Research<>(me);
+        Research rs = new Research(me);
         rs.conductResearch();
 
-        OtherRelations<MaleHuman> rl = new OtherRelations<>(me);
+        OtherRelations rl = new OtherRelations(me);
         MaleHuman myBrother = new MaleHuman(
                 Optional.of(myFather),
                 Optional.of(myMother),

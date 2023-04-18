@@ -1,4 +1,4 @@
 
-public interface IRelations<T extends Human>  {
-   void addRelation(String typeOfRelation, T source);
+public interface IRelations {
+   void addRelation(String typeOfRelation, Human source);
 }
