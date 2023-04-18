@@ -1,7 +1,7 @@
-public class Research {
-    private Human researchObject;
+public class  Research<T extends Human>  {
+    private T researchObject;
 
-    public Research(Human researchObject) {
+    public Research(T researchObject) {
         this.researchObject = researchObject;
     }
 

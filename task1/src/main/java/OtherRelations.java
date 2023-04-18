@@ -1,12 +1,11 @@
-import javax.net.ssl.HttpsURLConnection;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class OtherRelations implements IRelations, Iterable<MyEntry<String,ArrayList<Human>>> {
-    private Human owner;
+public class OtherRelations <T extends Human> implements IRelations, Iterable<MyEntry<String,ArrayList<Human>>> {
+    private T owner;
     private LinkedHashMap<String, ArrayList<Human>> relations;
 
-    public OtherRelations(Human owner) {
+    public OtherRelations(T owner) {
         this.owner = owner;
         this.relations = new LinkedHashMap<String, ArrayList<Human>>();
     }
@@ -22,7 +21,6 @@ public class OtherRelations implements IRelations, Iterable<MyEntry<String,Array
             if (!members.contains(source)) {
                 members.add(source);
             }
-
         }
     }
 
